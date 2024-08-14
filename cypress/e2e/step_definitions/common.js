@@ -4,11 +4,11 @@ Given(`que un usuario ingresa a la página`, () => {
   cy.log("Esta en el given");
 });
 
-When(`el usuario hace algo`, () => {
+When(`en la tabla {string} se ejecuta {string}`, (tableName, consulta) => {
   cy.log("Está en el When");
   cy.task("queryDB", {
-    DBname: "nombreTabla",
-    query: "select * from tabla where rownum<=20",
+    DBname: tableName,
+    query: consulta,
   }).then((response) => {
     cy.log(`La BD respondio ${JSON.stringify(response)}`);
   });

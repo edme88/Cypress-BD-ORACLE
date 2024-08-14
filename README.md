@@ -2,6 +2,7 @@
 2. Instalación Oracle y creación de función "hardcodeada" para base de datos
    2.1. Parametrización básica 'subiendo' las variables
    2.2. Envio de parámetros - Creación de cypress.env.json
+   2.3. Refactorización del feature
 
 ```json
 {
