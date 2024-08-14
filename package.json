@@ -1,0 +1,23 @@
+{
+  "name": "cypress-bd-oracle",
+  "version": "1.0.0",
+  "description": "Ejemplo de como incluir oracle con cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "cypress",
+    "oracle",
+    "base",
+    "de",
+    "datos"
+  ],
+  "author": "Agustina Aliciardi",
+  "license": "ISC",
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2",
+    "cypress": "^13.13.3"
+  }
+}
