@@ -47,12 +47,11 @@ module.exports = defineConfig({
         async queryDB({ DBname, query }) {
           let con, DBrespuesta;
 
-          DBname = "acaVaLaBase";
-          const userBD = "acaVaTuUsuario";
-          const passBD = "acaVaTuPass";
-          const host = "acaVaelHost";
-          const port = "acaVaelPort";
-          query = "select * from tabla where rownum<=20";
+          const DBcnx = config.env.BD[DBname];
+          const userBD = DBcnx.user;
+          const passBD = DBcnx.password;
+          const host = DBcnx.host;
+          const port = DBcnx.port;
 
           try {
             con = await oracledb.getConnection({

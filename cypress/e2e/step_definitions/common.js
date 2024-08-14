@@ -6,11 +6,12 @@ Given(`que un usuario ingresa a la página`, () => {
 
 When(`el usuario hace algo`, () => {
   cy.log("Está en el When");
-  cy.task("queryDB", { DBname: "ejemploVacio", query: "queryVacia" }).then(
-    (response) => {
-      cy.log(`La BD respondio ${JSON.stringify(response)}`);
-    }
-  );
+  cy.task("queryDB", {
+    DBname: "nombreTabla",
+    query: "select * from tabla where rownum<=20",
+  }).then((response) => {
+    cy.log(`La BD respondio ${JSON.stringify(response)}`);
+  });
 });
 
 Then(`se verifica algo`, () => {
