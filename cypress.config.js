@@ -47,17 +47,22 @@ module.exports = defineConfig({
         async queryDB({ DBname, query }) {
           let con, DBrespuesta;
 
+          DBname = "acaVaLaBase";
+          const userBD = "acaVaTuUsuario";
+          const passBD = "acaVaTuPass";
+          const host = "acaVaelHost";
+          const port = "acaVaelPort";
+          query = "select * from tabla where rownum<=20";
+
           try {
             con = await oracledb.getConnection({
-              user: "acaVaTuUser",
-              password: "acaVaTuPass",
-              connectionString: `acaVaHOST:acaVaPORT/acaVaNombreBD`,
+              user: userBD,
+              password: passBD,
+              connectionString: `${host}:${port}/${DBname}`,
               mode: oracledb.BASIC,
             });
 
-            DBrespuesta = await con.execute(
-              "select * from tabla where rownum<=20"
-            );
+            DBrespuesta = await con.execute(query);
             console.log(`Respuesta BD ${DBrespuesta}`);
           } catch (err) {
             console.error("Error al ejecutar la consulta:");
